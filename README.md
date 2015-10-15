@@ -1,3 +1,5 @@
+[![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/mwst2.svg?branch=master)](https://travis-ci.org/poissonconsulting/mwst2)
+
 # Mountain Whitefish Spawn Timing R Analysis Package
 
 `mwst2` is the companion R analysis package for Irvine et al.'s manuscript
