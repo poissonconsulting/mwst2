@@ -1,0 +1,34 @@
+Package: mwst2
+Type: Package
+Title: Mountain Whitefish Spawn Timing
+Version: 0.0.1
+Authors@R: c(
+    person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre")))
+Description: The companion R package for the Irvine et al. manuscript
+    When Do Mountain Whitefish (Prosopium williamsoni) Spawn?
+    A Comparison of Estimates Based on Gonadosomatic Indices and Spawner and Egg Counts.
+License: MIT + file LICENSE
+URL: https://github.com/poissonconsulting/mwst2
+LazyData: true
+SystemRequirements:
+    jags (>= 3.4.0)
+Depends:
+    R (>= 3.2.2),
+    mwstdatr
+Imports:
+    assertthat,
+    magrittr,
+    dplyr,
+    datalist (>= 0.5.0),
+    sp,
+    jaggernaut (>= 2.3.0),
+    ggplot2,
+    doParallel,
+    extrafont,
+    foreach,
+    scales,
+    raster,
+    rgeos
+Suggests:
+    testthat,
+    plotKML
