@@ -30,5 +30,4 @@ Imports:
     raster,
     rgeos
 Suggests:
-    testthat,
-    plotKML
+    testthat
