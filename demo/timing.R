@@ -8,9 +8,6 @@ library(lubridate)
 library(jaggernaut)
 library(mwst2)
 
-# create results/plots, results/pdfs and results/rds directories to store results
-create_dirs()
-
 # load required data (from mwstdatr)
 data(spawners)
 data(gsi)
@@ -25,16 +22,23 @@ cat(spawners_model_code())
 analysis <- analyse_spawners(spawners)
 summary(analysis)
 
-# save analysis object and pdfs of traceplots and residuals
-save_rds(analysis, "spawners-analysis")
-save_pdf(analysis, "spawners-traceplots")
-plot_residuals(analysis)
-save_plot("spawners-residuals", width = 4, height = 4)
+# save analysis object
+saveRDS(analysis, "results/spawners-analysis.rds")
 
-# predict number of spawners and plot with credible intervals and save
-fit <- predict_spawners(analysis)
-add_fit_lines(plot_spawners(spawners), fit)
-save_plot("spawners-fit")
+#' save spawner traceplots
+pdf("results/spawners-traceplots.pdf")
+plot(analysis)
+dev.off()
+
+# plot residuals
+png("results/spawners-residuals.png", width = 4, height = 4, units = "in", res = getOption("res", 150))
+plot_residuals(analysis)
+dev.off()
+
+# plot number of spawners with credible intervals
+png("results/spawners-fit.png", width = 2.63, height = 2.63, units = "in", res = getOption("res", 150))
+add_fit_lines(plot_spawners(spawners), predict_spawners(analysis))
+dev.off()
 
 # predict timing, set year to be 2011 and plot
 timing_spawners <- predict_timing(analysis)
@@ -51,21 +55,35 @@ cat(gsi_model_code())
 analysis10 <- analyse_gsi(filter(gsi, Year == 2010))
 summary(analysis10)
 
-# save analysis object and pdf of traceplots and eps of residuals
-save_rds(analysis10, "gsi-analysis10")
-save_pdf(analysis10, "gsi-traceplots10")
+# save analysis object
+saveRDS(analysis10, "results/gsi-analysis10.rds")
+
+#' save spawner traceplots
+pdf("results/gsi-traceplots10.pdf")
+plot(analysis10)
+dev.off()
+
+# plot residuals
+png("results/gsi-residuals10.png", width = 4, height = 4, units = "in", res = getOption("res", 150))
 plot_residuals(analysis10) + facet_wrap(~Sex)
-save_plot("gsi-residuals10", width = 4, height = 4)
+dev.off()
 
 # analyse GSI data for 2011
 analysis11 <- analyse_gsi(filter(gsi, Year == 2011))
 summary(analysis11)
 
-# save analysis object and pdf of traceplots and eps of residuals
-save_rds(analysis11, "gsi-analysis11")
-save_pdf(analysis11, "gsi-traceplots11")
+# save analysis object
+saveRDS(analysis11, "results/gsi-analysis11.rds")
+
+#' save spawner traceplots
+pdf("results/gsi-traceplots11.pdf")
+plot(analysis11)
+dev.off()
+
+# plot residuals
+png("results/gsi-residuals11.png", width = 4, height = 4, units = "in", res = getOption("res", 150))
 plot_residuals(analysis11) + facet_wrap(~Sex)
-save_plot("gsi-residuals11", width = 4, height = 4)
+dev.off()
 
 # predict GSI values for each year and combine
 fit10 <- predict_gsi(analysis10)
@@ -75,8 +93,9 @@ fit11$Year <- 2011
 fit <- rbind(fit10, fit11)
 
 # plot GSI data with predictions and credible intervals and save
+png("results/gsi-fit.png", width = 4, height = 4, units = "in", res = getOption("res", 150))
 (plot_gsi(gsi) + facet_grid(Sex ~ Year, scales = "free_y")) %>% add_fit_lines(fit)
-save_plot("gsi-fit", width = 4, height = 4)
+dev.off()
 
 # predict spawn timing by year and combine
 timing10 <- predict_timing(analysis10)
@@ -90,6 +109,8 @@ timing_spawners$Method <- "Spawner Count"
 
 # plot spawn timing by method and save
 timing <- rbind(timing_gsi, timing_spawners)
+png("results/timing.png", width = 4, height = 2.63, units = "in", res = getOption("res", 150))
 plot_timing(timing) + facet_wrap(~Method)
-save_plot("timing", width = 4)
-save_rds(timing)
+dev.off()
+
+saveRDS(timing, "results/timing.rds")

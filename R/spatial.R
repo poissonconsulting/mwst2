@@ -7,7 +7,7 @@
 #' @param ymax A number indicating the maximum Northing of the bounding box.
 #' @export
 crop <- function (sp, xmin = 1641000, xmax = 1647250, ymin = 613000, ymax = 624250) {
-  e1 <- as(raster::extent(xmin, xmax, ymin, ymax), 'SpatialPolygons')
+  e1 <- methods::as(raster::extent(xmin, xmax, ymin, ymax), 'SpatialPolygons')
   raster::projection(e1) <- raster::projection(sp)
   sp %<>% raster::intersect(e1)
   sp
@@ -32,8 +32,8 @@ add_layer <- function(sp, label = NULL, ...) {
   centroid <- NULL
   if (is.string(label)) {
     centroid <- as.data.frame(rgeos::gCentroid(sp, byid = TRUE))
-    centroid %<>% dplyr::rename_(.dots = setNames(list(~x, ~y), c("long", "lat")))
-    centroid %<>% dplyr::bind_cols(slot(sp, "data"))
+    centroid %<>% dplyr::rename_(.dots = stats::setNames(list(~x, ~y), c("long", "lat")))
+    centroid %<>% dplyr::bind_cols(methods::slot(sp, "data"))
     return(ggplot2::geom_text(
       data = centroid, ggplot2::aes_string(x = "long / 1000", y = "lat / 1000", label = label),
       show.legend = FALSE, inherit.aes = FALSE, ...))

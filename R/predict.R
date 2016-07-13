@@ -9,7 +9,7 @@
 #' @export
 predict_gsi <- function (x) {
   assert_that(jaggernaut::is.jags_analysis(x))
-  x <- predict(x, newdata = c("Dayte", "Sex"))
+  x <- stats::predict(x, newdata = c("Dayte", "Sex"))
   dplyr::select_(x, ~Dayte, ~Sex, ~estimate, ~lower, ~upper)
 }
 
@@ -23,7 +23,7 @@ predict_gsi <- function (x) {
 #' @export
 predict_spawners <- function (x) {
   assert_that(jaggernaut::is.jags_analysis(x))
-  x <- predict(x, newdata = c("Dayte"))
+  x <- stats::predict(x, newdata = c("Dayte"))
   dplyr::select_(x, ~Dayte, ~estimate, ~lower, ~upper)
 }
 
@@ -40,9 +40,9 @@ predict_timing <- function (x) {
 
   assert_that(jaggernaut::is.jags_analysis(x))
 
-  start <- predict(x, parm = "eStart", newdata = "")
-  peak <- predict(x, parm = "ePeak", newdata = "")
-  end <- predict(x, parm = "eEnd", newdata = "")
+  start <- stats::predict(x, parm = "eStart", newdata = "")
+  peak <- stats::predict(x, parm = "ePeak", newdata = "")
+  end <- stats::predict(x, parm = "eEnd", newdata = "")
 
   start$Event <- "Start"
   peak$Event <- "Peak"

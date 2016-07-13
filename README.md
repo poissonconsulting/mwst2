@@ -14,30 +14,31 @@ To use the `mwst2` package first install
 
 Then execute the following code at the R terminal:
 ```
+install.packages("devtools") # if not already installed
+
 library(devtools)
-devtools::install_github(paste("poissonconsulting", sep = "/", c(
-  "tulip@v0.0.13", "datalist@v0.5.0", "juggler@v0.1.5", "jaggernaut@v2.3.1",
-  "mwstdatr", "mwst2")))
+
+install_github("poissonconsulting/tulip@v0.0.13")
+install_github("poissonconsulting/datalist@v0.5.1")
+install_github("poissonconsulting/juggler@v0.1.5")
+install_github("poissonconsulting/jaggernaut@v2.3.3")
+install_github("poissonconsulting/mwstdatr")
+install_github("poissonconsulting/mwst2")
+
 library(mwst2)
 ```
-## Replication
 
-To quickly replicate the results of the manuscript with *unreliable* model estimates use:
+## Usage
+
+To quickly replicate the results with *unreliable* model estimates use:
 ```
-mwst2::replicate_results("debug")
+replicate_results()
 ```
 This option is useful for testing everything is installed correctly.
 
 To replicate the results with **reliable** model estimates use:
 ```
-mwst2::replicate_results("report")
-```
-
-To replicate the results with the same analysis settings and
-figure font family as the manuscript:
-```
-extrafont::font_import() # if you haven't done this already on your machine
-mwst2::replicate_results("paper", parallel = TRUE, base_family = "Arial")
+replicate_results("report")
 ```
 
 ## Information

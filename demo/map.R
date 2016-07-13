@@ -5,8 +5,8 @@ library(ggplot2)
 library(magrittr)
 library(mwst2)
 
-# create results/plots, results/pdfs and results/rds directories to store results
-create_dirs()
+#' create directory to store results
+dir.create("results", showWarnings = FALSE, recursive = TRUE)
 
 # load required data sets (from mwstdatr)
 data(ldr)
@@ -21,13 +21,13 @@ lardeau %<>% crop()
 duncan %<>% crop()
 kootenay %<>% crop()
 
-# plot map
+png("results/ldr.png", width = 2.63, height = 4.5, units = "in", res = getOption("res", 150))
+
+#' plot a map of the study area
 map(ldr, colour = "grey70", fill = "grey70") +
   add_layer(kootenay, colour = "grey70", fill = "grey70") +
   add_layer(duncan, colour = "grey70", fill = "grey70") +
   add_layer(lardeau, colour = "grey70", fill = "grey70") +
   add_layer(mats) +
   add_layer(mats, label = "RiverKm", hjust = -0.25, size = 2.5)
-
-# save plot as eps in results/plots
-save_plot("ldr", height = 4.5)
+dev.off()

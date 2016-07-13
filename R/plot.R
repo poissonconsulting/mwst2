@@ -88,7 +88,7 @@ plot_timing <- function(x) {
 plot_residuals <- function(x) {
   assert_that(jaggernaut::is.jags_analysis(x))
 
-  x %<>% residuals()
+  x %<>% stats::residuals()
 
   ggplot2::ggplot(data = x, ggplot2::aes_string(x = "Dayte", y = "estimate")) +
     ggplot2::geom_point() + ggplot2::xlab("Date") + ggplot2::ylab("Standardised Residual")
