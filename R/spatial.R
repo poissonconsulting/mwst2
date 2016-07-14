@@ -44,7 +44,7 @@ add_layer <- function(sp, label = NULL, ...) {
 
     hole <- list(...)
     hole$fill <- NULL
-    hole$fill = "transparent"
+    hole$fill = "white"
     hole$show.legend = FALSE
     hole$data = dplyr::filter_(sp, ~hole)
 
