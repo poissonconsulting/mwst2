@@ -36,7 +36,7 @@ plot_residuals(analysis)
 dev.off()
 
 # plot number of spawners with credible intervals
-png("results/spawners-fit.png", width = 2.63, height = 2.63, units = "in", res = getOption("res", 150))
+png("results/spawners-fit.png", width = 3, height = 3, units = "in", res = getOption("res", 150))
 add_fit_lines(plot_spawners(spawners), predict_spawners(analysis))
 dev.off()
 
@@ -109,7 +109,7 @@ timing_spawners$Method <- "Spawner Count"
 
 # plot spawn timing by method and save
 timing <- rbind(timing_gsi, timing_spawners)
-png("results/timing.png", width = 4, height = 2.63, units = "in", res = getOption("res", 150))
+png("results/timing.png", width = 4, height = 3, units = "in", res = getOption("res", 150))
 plot_timing(timing) + facet_wrap(~Method)
 dev.off()
 

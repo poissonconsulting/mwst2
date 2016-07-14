@@ -21,7 +21,7 @@ lardeau %<>% crop()
 duncan %<>% crop()
 kootenay %<>% crop()
 
-png("results/ldr.png", width = 2.63, height = 4.5, units = "in", res = getOption("res", 150))
+png("results/ldr.png", width = 3, height = 5, units = "in", res = getOption("res", 150))
 
 #' plot a map of the study area
 map(ldr, colour = "grey70", fill = "grey70") +
