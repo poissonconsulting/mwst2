@@ -42,10 +42,15 @@ add_layer <- function(sp, label = NULL, ...) {
   if(inherits(sp, "SpatialPolygons")) {
     sp %<>% fortify()
 
+    hole <- list(...)
+    hole$fill <- NULL
+    hole$fill = "white"
+    hole$show.legend = FALSE
+    hole$data = dplyr::filter_(sp, ~hole)
+
     return(list(ggplot2::geom_polygon(data = dplyr::filter_(sp, ~!hole),
                                       show.legend = FALSE, ...),
-                ggplot2::geom_polygon(data = dplyr::filter_(sp, ~hole),
-                                      show.legend = FALSE, fill = "white", ...)))
+                do.call(ggplot2::geom_polygon, hole)))
   }
   sp %<>% fortify()
 
