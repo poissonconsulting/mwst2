@@ -32,7 +32,7 @@ add_layer <- function(sp, label = NULL, ...) {
   centroid <- NULL
   if (is.string(label)) {
     centroid <- as.data.frame(rgeos::gCentroid(sp, byid = TRUE))
-    centroid %<>% dplyr::rename_(.dots = stats::setNames(list(~x, ~y), c("long", "lat")))
+    centroid %<>% dplyr::rename_(.dots = list(long = ~x, lat = ~y))
     centroid %<>% dplyr::bind_cols(methods::slot(sp, "data"))
     return(ggplot2::geom_text(
       data = centroid, ggplot2::aes_string(x = "long / 1000", y = "lat / 1000", label = label),
