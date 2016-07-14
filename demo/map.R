@@ -29,5 +29,6 @@ map(ldr, colour = "grey70", fill = "grey70") +
   add_layer(duncan, colour = "grey70", fill = "grey70") +
   add_layer(lardeau, colour = "grey70", fill = "grey70") +
   add_layer(mats) +
-  add_layer(mats, label = "RiverKm", hjust = -0.25, size = 2.5)
+  add_layer(mats, label = "RiverKm", hjust = -0.25, size = 2.5) +
+  theme(panel.grid = element_line())
 dev.off()
