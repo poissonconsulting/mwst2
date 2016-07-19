@@ -23,9 +23,9 @@ lardeau %<>% crop()
 duncan %<>% crop()
 kootenay %<>% crop()
 
-labels <- data_frame(Label = "Lower Duncan River", Easting = 1644.5, Northing = 619)
-labels %<>% bind_rows(data_frame(Label = "Duncan Reservoir", Easting = 1645.5, Northing = 623))
-labels %<>% bind_rows(data_frame(Label = "Kootenay Lake", Easting = 1643, Northing = 613.5))
+labels <- data_frame(Label = "Lower Duncan River", Easting = 1644.5, Northing = 618.75)
+labels %<>% bind_rows(data_frame(Label = "Duncan Reservoir", Easting = 1644.25, Northing = 623.75))
+labels %<>% bind_rows(data_frame(Label = "Kootenay Lake", Easting = 1645.5, Northing = 613.5))
 labels$group <- "Label"
 
 png("results/ldr.png", width = 3, height = 5, units = "in", res = getOption("res", 150))
@@ -37,7 +37,7 @@ map(ldr, colour = "grey70", fill = "grey70") +
   add_layer(lardeau, colour = "grey70", fill = "grey70") +
   add_layer(mats) +
   add_layer(transect, color = "red", shape = 17) +
-  add_layer(mats, label = "RiverKm", hjust = -0.25, size = 2.5) +
+  add_layer(mats, label = "RiverKm", size = 2.5) +
   geom_text(data = labels, aes(x = Easting, y = Northing, label = Label), size = 2) +
   theme(panel.grid = element_line())
 dev.off()

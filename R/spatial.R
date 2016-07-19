@@ -34,7 +34,7 @@ add_layer <- function(sp, label = NULL, ...) {
     centroid <- as.data.frame(rgeos::gCentroid(sp, byid = TRUE))
     centroid %<>% dplyr::rename_(.dots = list(long = ~x, lat = ~y))
     centroid %<>% dplyr::bind_cols(methods::slot(sp, "data"))
-    return(ggplot2::geom_text(
+    return(ggrepel::geom_text_repel(
       data = centroid, ggplot2::aes_string(x = "long / 1000", y = "lat / 1000", label = label),
       show.legend = FALSE, inherit.aes = FALSE, ...))
   }

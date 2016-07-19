@@ -23,6 +23,7 @@ Imports:
     sp,
     jaggernaut (>= 2.3.0),
     ggplot2,
+    ggrepel,
     doParallel,
     foreach,
     scales,
