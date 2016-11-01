@@ -50,9 +50,9 @@ predict_timing <- function (x) {
 
   timing <- rbind(start, peak, end)
   timing %<>% dplyr::select_(~Event, ~estimate, ~lower, ~upper)
-  timing$estimate %<>% datalist::integer2date()
-  timing$lower %<>% datalist::integer2date()
-  timing$upper %<>% datalist::integer2date()
+  timing$estimate %<>% integer2date()
+  timing$lower %<>% integer2date()
+  timing$upper %<>% integer2date()
   timing$Event %<>% factor(levels = c("Start", "Peak", "End"))
   dplyr::arrange_(timing, ~Event)
 }

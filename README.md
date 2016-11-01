@@ -15,16 +15,7 @@ To use the `mwst2` package first install
 Then execute the following code at the R terminal:
 ```
 install.packages("devtools") # if not already installed
-
-library(devtools)
-
-install_github("poissonconsulting/tulip@v0.0.13")
-install_github("poissonconsulting/datalist@v0.5.1")
-install_github("poissonconsulting/juggler@v0.1.5")
-install_github("poissonconsulting/jaggernaut@v2.3.3")
-install_github("poissonconsulting/mwstdatr")
-install_github("poissonconsulting/mwst2")
-
+devtools::install_github("poissonconsulting/mwst2")
 library(mwst2)
 ```
 
