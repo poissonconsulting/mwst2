@@ -32,14 +32,12 @@ yesno <- function(question) {
 #' \code{mode = "paper"}.
 #'
 #' @param mode A string specifying the mode for the analyses.
-#' @param res A count indicating the nominal resolution in ppi.
 #' @param parallel A flag indicating whether to run the chains in parallel.
 #' @param ask A flag indicating whether to ask before creating results directory.
 #' @export
-replicate_results <- function(mode = "debug", res = 150L, parallel = TRUE, ask = TRUE) {
+replicate_results <- function(mode = "debug", parallel = TRUE, ask = TRUE) {
 
   assert_that(is.string(mode))
-  assert_that(is.count(res))
   assert_that(is.flag(parallel))
   assert_that(is.flag(ask))
 
@@ -74,9 +72,6 @@ replicate_results <- function(mode = "debug", res = 150L, parallel = TRUE, ask =
     dir.create("results", showWarnings = FALSE, recursive = TRUE)
 
     saveRDS(mode, "results/mode.rds")
-
-    res <- options(res = res)
-    on.exit(options(res = res$res), add = TRUE)
 
     utils::demo("map", ask = FALSE)
     utils::demo("timing", ask = FALSE)

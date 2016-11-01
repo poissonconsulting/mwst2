@@ -4,13 +4,10 @@
 \alias{replicate_results}
 \title{Replicate Results}
 \usage{
-replicate_results(mode = "debug", res = 150L, parallel = TRUE,
-  ask = TRUE)
+replicate_results(mode = "debug", parallel = TRUE, ask = TRUE)
 }
 \arguments{
 \item{mode}{A string specifying the mode for the analyses.}
-
-\item{res}{A count indicating the nominal resolution in ppi.}
 
 \item{parallel}{A flag indicating whether to run the chains in parallel.}
 

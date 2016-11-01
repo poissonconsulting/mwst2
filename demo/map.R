@@ -28,7 +28,7 @@ labels %<>% bind_rows(data_frame(Label = "Duncan Reservoir", Easting = 1644.25, 
 labels %<>% bind_rows(data_frame(Label = "Kootenay Lake", Easting = 1645.5, Northing = 613.5))
 labels$group <- "Label"
 
-pdf("results/ldr.pdf", width = 3, height = 5, units = "in", res = getOption("res", 150))
+pdf("results/ldr.pdf", width = 3, height = 5)
 
 #' plot a map of the study area
 map(ldr, colour = "grey70", fill = "grey70") +

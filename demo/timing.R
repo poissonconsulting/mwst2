@@ -31,12 +31,12 @@ plot(analysis)
 dev.off()
 
 # plot residuals
-pdf("results/spawners-residuals.pdf", width = 4, height = 4, units = "in", res = getOption("res", 150))
+pdf("results/spawners-residuals.pdf", width = 4, height = 4)
 plot_residuals(analysis)
 dev.off()
 
 # plot number of spawners with credible intervals
-pdf("results/spawners-fit.pdf", width = 3, height = 3, units = "in", res = getOption("res", 150))
+pdf("results/spawners-fit.pdf", width = 3, height = 3)
 add_fit_lines(plot_spawners(spawners), predict_spawners(analysis))
 dev.off()
 
@@ -64,7 +64,7 @@ plot(analysis10)
 dev.off()
 
 # plot residuals
-pdf("results/gsi-residuals10.pdf", width = 4, height = 4, units = "in", res = getOption("res", 150))
+pdf("results/gsi-residuals10.pdf", width = 4, height = 4)
 plot_residuals(analysis10) + facet_wrap(~Sex)
 dev.off()
 
@@ -81,7 +81,7 @@ plot(analysis11)
 dev.off()
 
 # plot residuals
-pdf("results/gsi-residuals11.pdf", width = 4, height = 4, units = "in", res = getOption("res", 150))
+pdf("results/gsi-residuals11.pdf", width = 4, height = 4)
 plot_residuals(analysis11) + facet_wrap(~Sex)
 dev.off()
 
@@ -93,7 +93,7 @@ fit11$Year <- 2011
 fit <- rbind(fit10, fit11)
 
 # plot GSI data with predictions and credible intervals and save
-pdf("results/gsi-fit.pdf", width = 4, height = 4, units = "in", res = getOption("res", 150))
+pdf("results/gsi-fit.pdf", width = 4, height = 4)
 (plot_gsi(gsi) + facet_grid(Sex ~ Year, scales = "free_y")) %>% add_fit_lines(fit)
 dev.off()
 
@@ -109,7 +109,7 @@ timing_spawners$Method <- "Spawner Count"
 
 # plot spawn timing by method and save
 timing <- rbind(timing_gsi, timing_spawners)
-pdf("results/timing.pdf", width = 4, height = 3, units = "in", res = getOption("res", 150))
+pdf("results/timing.pdf", width = 4, height = 3)
 plot_timing(timing) + facet_wrap(~Method)
 dev.off()
 
