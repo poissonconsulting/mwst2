@@ -75,7 +75,6 @@ replicate_results <- function(mode = "debug", parallel = TRUE, ask = TRUE) {
 
     utils::demo("map", ask = FALSE)
     utils::demo("timing", ask = FALSE)
-
   }
   invisible()
 }

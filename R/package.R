@@ -13,4 +13,5 @@
 #' @import assertthat rgeos sp mwstdatr
 #' @importFrom magrittr "%>%" "%<>%"
 #' @importFrom ggplot2 fortify
+#' @importFrom plotKML plotKML
 NULL
