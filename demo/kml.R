@@ -17,4 +17,4 @@ mats %<>% spTransform(CRS("+proj=longlat +datum=WGS84"))
 mats[["Site"]] %<>% as.character()
 mats@data$Colour <- "Colour"
 
-plotKML(mats, "results/map.kml", colour = "Colour", points_name = mats[["Site"]])
+plotKML(mats, "results/map", colour = "Colour", points_name = mats[["Site"]])

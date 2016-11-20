@@ -1,7 +1,7 @@
 Package: mwst2
 Type: Package
 Title: Mountain Whitefish Spawn Timing
-Version: 0.0.4
+Version: 0.0.5
 Date: 2016-11-20
 Authors@R: c(
     person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre")))
