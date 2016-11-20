@@ -1,5 +1,5 @@
+[![DOI](https://zenodo.org/badge/44328995.svg)](https://zenodo.org/badge/latestdoi/44328995)
 [![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/mwst2.svg?branch=master)](https://travis-ci.org/poissonconsulting/mwst2)
-[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.32592.svg)](http://dx.doi.org/10.5281/zenodo.32592)
 
 # Mountain Whitefish Spawn Timing R Analysis Package
 
