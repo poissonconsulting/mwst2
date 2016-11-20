@@ -1,8 +1,8 @@
 Package: mwst2
 Type: Package
 Title: Mountain Whitefish Spawn Timing
-Version: 0.0.2
-Date: 2016-11-01
+Version: 0.0.3
+Date: 2016-11-20
 Authors@R: c(
     person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre")))
 Description: The companion R package for the Irvine et al. manuscript When Do
@@ -14,7 +14,7 @@ LazyData: true
 SystemRequirements: jags (>= 3.4.0)
 Depends:
     R (>= 3.2.2),
-    mwstdatr (>= 0.0.1)
+    mwstdatr (>= 0.0.2)
 Imports:
     assertthat,
     magrittr,
