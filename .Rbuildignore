@@ -4,3 +4,4 @@
 ^results$
 ^\.travis\.yml$
 ^\.github$
+^codecov\.yml$

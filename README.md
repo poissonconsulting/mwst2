@@ -1,5 +1,8 @@
+
+<!-- badges: start -->
 [![DOI](https://zenodo.org/badge/44328995.svg)](https://zenodo.org/badge/latestdoi/44328995)
-[![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/mwst2.svg?branch=master)](https://travis-ci.org/poissonconsulting/mwst2)
+[![R build status](https://github.com/poissonconsulting/mwst2/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/mwst2/actions)
+<!-- badges: end -->
 
 # Mountain Whitefish Spawn Timing R Analysis Package
 
