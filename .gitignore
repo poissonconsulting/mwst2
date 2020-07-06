@@ -1,6 +1,14 @@
 .Rproj.user
 .Rhistory
 .RData
-.DS_Store
+.Ruserdata
 
-/results/
+.DS_Store
+.Renviron
+.RProfile
+.httr-oauth
+
+*.html
+
+docs/
+inst/docs/
